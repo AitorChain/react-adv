@@ -96,5 +96,5 @@ Install VSCODE extensions
 
 ## Add this to settings.json in VSCODE
 
-  "editor.formatOnSave": false,
-  "editor.codeActionsOnSave": ["source.formatDocument", "source.fixAll.eslint"],
+   "editor.formatOnSave": false,
+   "editor.codeActionsOnSave": ["source.formatDocument", "source.fixAll.eslint"],
