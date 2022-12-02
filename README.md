@@ -29,9 +29,10 @@ Install VSCODE extensions
 
 ## Add scripts to package.json
 
-    "lint":  "eslint 'src/**/*.{js,jsx,ts,tsx,json}'",
-    "lint:fix":  "eslint --fix 'src/**/*.{js,jsx,ts,tsx,json}'",
-    "format":  "prettier --write 'src/**/*.{js,jsx,ts,tsx,css,md,json}' --config ./.prettierrc",
+    "lint": "eslint 'src/**/*.{js,jsx,ts,tsx,json}'",
+    "lint:fix": "eslint --fix 'src/**/*.{js,jsx,ts,tsx,json}'",
+    "prettier:fix": "prettier --write 'src/**/*.{js,jsx,ts,tsx,css,md,json}' --config ./.prettierrc",
+    "format": "yarn prettier:fix && yarn lint:fix",
 
 ## .eslintrc.json
 
