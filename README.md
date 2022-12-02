@@ -1,5 +1,12 @@
 # Initial Eslint / Prettier configuration
 
+## Prerequisites
+
+Install VSCODE extensions
+ - Prettier 
+ - Eslint
+ - Format Code Action
+
 ## Start Eslint
 
 `npm init @eslint/config`
@@ -8,8 +15,6 @@
  - JS Modules
  - React
  - Yes
- - Popular guide
- - Airbnb
  - JSON
  - Yarn
 
