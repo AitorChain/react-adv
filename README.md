@@ -1,46 +1,89 @@
-# Getting Started with Create React App
+# Initial Eslint / Prettier configuration
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Start Eslint
 
-## Available Scripts
+`npm init @eslint/config`
 
-In the project directory, you can run:
+ - Check syntax and find problems
+ - JS Modules
+ - React
+ - Yes
+ - Popular guide
+ - Airbnb
+ - JSON
+ - Yarn
 
-### `yarn start`
+`yarn add -D eslint-plugin-import @typescript-eslint/parser eslint-import-resolver-typescript`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Install Prettier
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+    yarn add prettier eslint-config-prettier eslint-plugin-prettier eslint-plugin-react-hooks -D
 
-### `yarn test`
+- Create file  `.prettierrc`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `yarn build`
+## Add scripts to package.json
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+    "lint":  "eslint 'src/**/*.{js,jsx,ts,tsx,json}'",
+    "lint:fix":  "eslint --fix 'src/**/*.{js,jsx,ts,tsx,json}'",
+    "format":  "prettier --write 'src/**/*.{js,jsx,ts,tsx,css,md,json}' --config ./.prettierrc",
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## .eslintrc.json
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+    {
+      "env": {
+        "browser": true,
+        "es2021": true,
+        "jest": true
+      },
+      "extends": [
+        "eslint:recommended",
+        "plugin:react/recommended",
+        "plugin:@typescript-eslint/recommended",
+        "prettier"
+      ],
+      "overrides": [],
+      "parser": "@typescript-eslint/parser",
+      "parserOptions": {
+        "ecmaVersion": "latest",
+        "sourceType": "module"
+      },
+      "plugins": ["react", "react-hooks", "@typescript-eslint", "prettier"],
+      "rules": {
+        "react/react-in-jsx-scope": 0,
+        "camelcase": 2,
+        "no-duplicate-imports": 2,
+        "@typescript-eslint/explicit-module-boundary-types": 0,
+        "key-spacing": [
+          "error",
+          {
+            "multiLine": {
+              "beforeColon": false,
+              "afterColon": true
+            },
+            "align": {
+              "beforeColon": true,
+              "afterColon": true,
+              "on": "colon"
+            }
+          }
+        ]
+      },
+      "settings": {
+        "import/resolver": {
+          "typescript": {}
+        }
+      }
+    }
+    
+## .prettierrc
 
-### `yarn eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+    {
+      "singleQuote": true,
+      "useTabs": true,
+      "tabWidth": 1,
+      "jsxSingleQuote": true,
+      "singleAttributePerLine": true,
+      "bracketSpacing": true,
+      "trailingComma": "es5"
+    }
